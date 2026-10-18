@@ -1,0 +1,88 @@
+attendance = {}
+def mark_attendance():
+    name = input("Enter student name: ").strip()
+    if not name:
+        print("Student name cannot be empty.")
+        return
+    status = input("Enter attendance (P for Present / A for Absent): ")
+    status = status.upper()
+    if status == "P":
+        attendance[name] = "Present"
+        print("Attendance marked as Present!")
+    elif status == "A":
+        attendance[name] = "Absent"
+        print("Attendance marked as Absent!")
+    else:
+        print("Invalid attendance choice.")
+def view_attendance():
+    if not attendance:
+        print("No attendance records found.")
+        return
+    print("\n--- Attendance Report ---")
+    for name, status in attendance.items():
+        print(name, ":", status)
+    present = list(attendance.values()).count("Present")
+    absent = list(attendance.values()).count("Absent")
+    print("-------------------------")
+    print("Total Students:", len(attendance))
+    print("Present:", present)
+    print("Absent:", absent)
+while True:
+    print("\n=== Attendance Management System ===")
+    print("1. Mark Attendance")
+    print("2. View Attendance")
+    print("3. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        mark_attendance()
+    elif choice == "2":
+        view_attendance()
+    elif choice == "3":
+        print("Thank you for using the system!")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+
+OUTPUT:
+
+
+=== Attendance Management System ===
+1. Mark Attendance
+2. View Attendance
+3. Exit
+Enter your choice: 1
+Enter student name: Rahul
+Enter attendance (P for Present / A for Absent): P
+Attendance marked as Present!
+
+=== Attendance Management System ===
+1. Mark Attendance
+2. View Attendance
+3. Exit
+Enter your choice: 1
+Enter student name: Priya
+Enter attendance (P for Present / A for Absent): A
+Attendance marked as Absent!
+
+=== Attendance Management System ===
+1. Mark Attendance
+2. View Attendance
+3. Exit
+Enter your choice: 2
+
+--- Attendance Report ---
+Rahul : Present
+Priya : Absent
+-------------------------
+Total Students: 2
+Present: 1
+Absent: 1
+
+=== Attendance Management System ===
+1. Mark Attendance
+2. View Attendance
+3. Exit
+Enter your choice: 3
+Thank you for using the system!
